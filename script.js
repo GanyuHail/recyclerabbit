@@ -60,62 +60,6 @@ let selectedObject = null;
         scene.add(sphereMesh);
         sphereMesh.position.set(80, 50, 200);
 
-        const sphereGeometry2 = new THREE.SphereGeometry(40, 64, 32);
-        const sphereTex2 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port4/main/src/romance.png');
-        const sphereMaterial2 = new THREE.MeshStandardMaterial({ map: sphereTex2 });
-        const sphereMesh2 = new THREE.Mesh(sphereGeometry2, sphereMaterial2);
-        scene.add(sphereMesh2);
-        sphereMesh2.position.set(-50, 100, 50);
-
-        const sphereGeometry3 = new THREE.SphereGeometry(24, 64, 32);
-        const sphereTex3 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port4/main/src/ripple.png');
-        const sphereMaterial3 = new THREE.MeshStandardMaterial({ map: sphereTex3 });
-        const sphereMesh3 = new THREE.Mesh(sphereGeometry3, sphereMaterial3);
-        scene.add(sphereMesh3);
-        sphereMesh3.position.set(10, -100, -20);
-
-        const sphereGeometry4 = new THREE.SphereGeometry(12, 64, 32);
-        const sphereTex4 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/Instagram_logo_2016.svg.webp');
-        const sphereMaterial4 = new THREE.MeshStandardMaterial({ map: sphereTex4 });
-        const sphereMesh4 = new THREE.Mesh(sphereGeometry4, sphereMaterial4);
-        scene.add(sphereMesh4);
-        sphereMesh4.position.set(-100, 130, 90);
-
-        const sphereGeometry5 = new THREE.SphereGeometry(60, 64, 32);
-        const sphereTex5 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail//port4/main/src/oestroalt2.png');
-        const sphereMaterial5 = new THREE.MeshStandardMaterial({ map: sphereTex5 });
-        const sphereMesh5 = new THREE.Mesh(sphereGeometry5, sphereMaterial5);
-        scene.add(sphereMesh5);
-        sphereMesh5.position.set(220, 125, -100);
-
-        const sphereGeometry6 = new THREE.SphereGeometry(30, 64, 32);
-        const sphereTex6 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/mesmo.png');
-        const sphereMaterial6 = new THREE.MeshStandardMaterial({ map: sphereTex6 });
-        const sphereMesh6 = new THREE.Mesh(sphereGeometry6, sphereMaterial6);
-        scene.add(sphereMesh6);
-        sphereMesh6.position.set(250, 170, -110);
-
-        const sphereGeometry7 = new THREE.SphereGeometry(60, 64, 32);
-        const sphereTex7 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/weOpMin.jpg');
-        const sphereMaterial7 = new THREE.MeshStandardMaterial({ map: sphereTex7 });
-        const sphereMesh7 = new THREE.Mesh(sphereGeometry7, sphereMaterial7);
-        scene.add(sphereMesh7);
-        sphereMesh7.position.set(200, -20, -70);
-
-        const sphereGeometry8 = new THREE.SphereGeometry(50, 64, 32);
-        const sphereTex8 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port4/main/src/lines.png');
-        const sphereMaterial8 = new THREE.MeshStandardMaterial({ map: sphereTex8 });
-        const sphereMesh8 = new THREE.Mesh(sphereGeometry8, sphereMaterial8);
-        scene.add(sphereMesh8);
-        sphereMesh8.position.set(0, 0, -100);
-
-
-        const sphereGeometry9 = new THREE.SphereGeometry(120, 64, 32);
-        const sphereTex9 = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port4/main/src/leaves.jpg');
-        const sphereMaterial9 = new THREE.MeshStandardMaterial({ map: sphereTex9 });
-        const sphereMesh9 = new THREE.Mesh(sphereGeometry9, sphereMaterial9);
-        scene.add(sphereMesh9);
-        sphereMesh9.position.set(-100, -100, -100);
 
         for (i = 0; i < particleCount; i++) {
 

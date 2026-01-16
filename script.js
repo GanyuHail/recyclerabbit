@@ -27,7 +27,7 @@ let selectedObject = null;
 
         fieldOfView = 120; // was 75
         aspectRatio = WIDTH / HEIGHT;
-        nearPlane = 1; // this is render nearplane not camera nearplane. 
+        nearPlane = 1; // this is render nearplane not camera nearplane.
         farPlane = 3000;
 
         cameraZ = farPlane / 2;
@@ -54,8 +54,11 @@ let selectedObject = null;
         particleCount = 2000;
 
         const paintGeometry = new THREE.BoxGeometry(50, 50, 1);
-        const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.jpg');
+        const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.png');
         paintTexture.colourSpace = THREE.SRGBColorSpace;
+        const paintMesh = new THREE.Mesh(paintGeometry, paintTexture)
+        scene.add(paintMesh);
+        paintMesh.position.set(100, 50, 50);
 
         const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
         const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');

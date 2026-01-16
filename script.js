@@ -53,12 +53,16 @@ let selectedObject = null;
         geometry = new THREE.Geometry();
         particleCount = 4000;
 
+        const paintGeometry = new THREE.BoxGeometry(50, 50, 1);
+        const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.jpg');
+        paintTexture.colourSpace = THREE.SRGBColorSpace;
+
         const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
         const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');
         const sphereMaterial = new THREE.MeshStandardMaterial({ map: sphereTex });
         const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphereMesh);
-        sphereMesh.position.set(80, 50, 200);
+        sphereMesh.position.set(0, 0, 0);
 
 
         for (i = 0; i < particleCount; i++) {

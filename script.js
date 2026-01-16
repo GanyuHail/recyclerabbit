@@ -51,7 +51,7 @@ let selectedObject = null;
         document.body.style.overflow = 'visible';
 
         geometry = new THREE.Geometry();
-        particleCount = 4000;
+        particleCount = 2000;
 
         const paintGeometry = new THREE.BoxGeometry(50, 50, 1);
         const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.jpg');
@@ -98,12 +98,12 @@ let selectedObject = null;
 
             materials[i] = new THREE.PointsMaterial({
                 transparent: true,
-                size: 1,
+                size: .5,
             });
 
             particles = new THREE.Points(geometry, materials[i]);
 
-            particles.rotation.x = Math.random() * 6;
+            particles.rotation.x = Math.random() * 10;
             particles.rotation.y = Math.random() * 6;
             particles.rotation.z = Math.random() * 6;
 
@@ -256,11 +256,11 @@ let selectedObject = null;
         }
 
         // Update materials' colors based on time
-        for (let i = 0; i < materials.length; i++) {
-            const color = parameters[i][0];
-            const h = (360 * (color[0] + (time * 7)) % 360) / 360;
-            materials[i].color.setHSL(h, color[1], color[2]);
-        }
+        // for (let i = 0; i < materials.length; i++) {
+        //     const color = parameters[i][0];
+        //     const h = (360 * (color[0] + (time * 7)) % 360) / 360;
+        //     materials[i].color.setHSL(h, color[1], color[2]);
+        // }
 
         // Optionally, you can use interpolated color blending code here if needed:
         /*

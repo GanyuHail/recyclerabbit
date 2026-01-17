@@ -58,14 +58,14 @@ let selectedObject = null;
         paintTexture.colourSpace = THREE.SRGBColorSpace;
         const paintMesh = new THREE.Mesh(paintGeometry, paintTexture)
         scene.add(paintMesh);
-        paintMesh.position.set(100, 50, 50);
+        paintMesh.position.set(0, 0, 0);
 
-        const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
-        const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');
-        const sphereMaterial = new THREE.MeshStandardMaterial({ map: sphereTex });
-        const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        scene.add(sphereMesh);
-        sphereMesh.position.set(0, 0, 0);
+        // const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
+        // const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');
+        // const sphereMaterial = new THREE.MeshStandardMaterial({ map: sphereTex });
+        // const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        // scene.add(sphereMesh);
+        // sphereMesh.position.set(0, 0, 0);
 
 
         for (i = 0; i < particleCount; i++) {

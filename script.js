@@ -55,10 +55,19 @@ let selectedObject = null;
 
         const paintGeometry = new THREE.BoxGeometry(50, 50, 1);
         const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.png');
-        paintTexture.colourSpace = THREE.SRGBColorSpace;
-        const paintMesh = new THREE.Mesh(paintGeometry, paintTexture)
+        paintTexture.colourSpace = THREE.SRGBColorSpace; // removed linear
+
+        // Material for the front and back faces (with texture)
+        const material = new THREE.MeshPhongMaterial({ // was MeshStandardMat
+          map: paintTexture,
+          metalness: 1.5, // was 0.8
+          roughness: 1.5, // was 0.8
+          // emissive: new THREE.Color(0x111111),
+          // emissiveIntensity: 7.5, // was 0.8, 15 negative
+        });
+
+        const paintMesh = new THREE.Mesh(paintGeometry, material);
         scene.add(paintMesh);
-        paintMesh.position.set(0, 0, 0);
 
         // const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
         // const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');

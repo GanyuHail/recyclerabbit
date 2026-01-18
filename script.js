@@ -53,7 +53,7 @@ let selectedObject = null;
         geometry = new THREE.Geometry();
         particleCount = 2000;
 
-        const paintGeometry = new THREE.BoxGeometry(50, 50, 1);
+        const paintGeometry = new THREE.BoxGeometry(50, 50, 0);
         const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.png');
         paintTexture.colourSpace = THREE.SRGBColorSpace; // removed linear
 
@@ -172,49 +172,19 @@ let selectedObject = null;
             }
         };
 
-        function onMouseDown(event) {
-            if (selectedObject === sphereMesh) {
-                myFunction();
-            } else if (selectedObject === sphereMesh2) {
-                window.location.href = "https://ganyuhail.github.io/RomanceDemo/";
-            } else if (selectedObject === sphereMesh3) {
-                window.location.href = "https://ganyuhail.github.io/ripple/";
-            } else if (selectedObject === sphereMesh4) {
-                window.location.href = "https://www.instagram.com/hennohail/?hl=en";
-            } else if (selectedObject === sphereMesh5) {
-                window.location.href = "https://www.oestrogeneration.org/";
-            } else if (selectedObject === sphereMesh6) {
-                window.location.href = "https://ganyuhail.github.io/mesmo1/";
-            } else if (selectedObject === sphereMesh7) {
-                window.location.href = "https://ganyuhail.github.io/nb/";
-            } else if (selectedObject === sphereMesh8) {
-                window.location.href = "https://ganyuhail.github.io/paintlines2/";
-            } else if (selectedObject === sphereMesh9) {
-                window.location.href = "https://blossomprism.etsy.com";
-            }
-        };
+    // Handle clicks or touch events for navigation
+    function handleNavigation(event) {
+        if (selectedObject && selectedObject.material) {
+          console.log('Object clicked:', selectedObject);  // Test if the object is clicked
+          window.location.href = "/recyclerabbit/page.html";  // Navigate to another page
+        }
+      }
 
-        function touchEnd(event) {
-            if (selectedObject === sphereMesh) {
-                myFunction();
-            } else if (selectedObject === sphereMesh2) {
-                window.location.href = "https://ganyuhail.github.io/RomanceDemo/";
-            } else if (selectedObject === sphereMesh3) {
-                window.location.href = "https://ganyuhail.github.io/ripple/";
-            } else if (selectedObject === sphereMesh4) {
-                window.location.href = "https://www.instagram.com/hennohail/?hl=en";
-            } else if (selectedObject === sphereMesh5) {
-                window.location.href = "https://www.oestrogeneration.org/";
-            } else if (selectedObject === sphereMesh6) {
-                window.location.href = "https://ganyuhail.github.io/mesmo1/";
-            } else if (selectedObject === sphereMesh7) {
-                window.location.href = "https://ganyuhail.github.io/nb/";
-            } else if (selectedObject === sphereMesh8) {
-                window.location.href = "https://ganyuhail.github.io/paintlines2/";
-            } else if (selectedObject === sphereMesh9) {
-                window.location.href = "https://blossomprism.etsy.com";
-            }
-        };
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('click', handleNavigation);
+      window.addEventListener('touchend', handleNavigation);
+
+
 
         // function touchCancel(event) {
         //     selectedObject = null;

@@ -25,7 +25,7 @@ let selectedObject = null;
         windowHalfX = WIDTH / 2;
         windowHalfY = HEIGHT / 2;
 
-        fieldOfView = 120; // was 75
+        fieldOfView = 90; // was 120
         aspectRatio = WIDTH / HEIGHT;
         nearPlane = 1; // this is render nearplane not camera nearplane.
         farPlane = 3000;
@@ -146,7 +146,7 @@ let selectedObject = null;
 
         function onPointerMove(event) {
             if (selectedObject) {
-                selectedObject.material.color.set('white');
+                selectedObject.material.colgitor.set('white');
                 selectedObject = null;
             }
 

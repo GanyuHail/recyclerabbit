@@ -60,8 +60,8 @@ let selectedObject = null;
         // Material for the front and back faces (with texture)
         const material = new THREE.MeshPhongMaterial({ // was MeshStandardMat
           map: paintTexture,
-          metalness: 1.5, // was 0.8
-          roughness: 1.5, // was 0.8
+        //   metalness: 1.5, // was 0.8
+        //   roughness: 1.5, // was 0.8
           // emissive: new THREE.Color(0x111111),
           // emissiveIntensity: 7.5, // was 0.8, 15 negative
         });

@@ -51,7 +51,7 @@ let selectedObject = null;
         document.body.style.overflow = 'visible';
 
         geometry = new THREE.Geometry();
-        particleCount = 2000;
+        particleCount = 1000;
 
         const paintGeometry = new THREE.BoxGeometry(50, 50, 0);
         const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.png');
@@ -139,8 +139,8 @@ let selectedObject = null;
         const pointer = new THREE.Vector2();
 
         window.addEventListener('pointermove', onPointerMove);
-        window.addEventListener('click', onMouseDown);
-        window.addEventListener('touchend', touchEnd);
+        // window.addEventListener('click', onMouseDown);
+        // window.addEventListener('touchend', touchEnd);
         // window.addEventListener('touchcancel', touchCancel);
         // window.addEventListener('touchstart', touchStart);
 

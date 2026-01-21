@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @font-face {
     font-family: 'Yerk';
     src: url('../../src/Yerk-Regular.ttf'), url('https://github.com/GanyuHail/port4/blob/b2cee24e20d569f7f625fbd2d7cafe3a68cad6bb/src/Yerk-Regular.ttf'), local('Yerk-Regular');
@@ -39,9 +41,6 @@
     background-color: #04AA6D;
     color: white;
 }*/
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 *,
 *:after,
 *:before {

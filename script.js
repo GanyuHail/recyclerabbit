@@ -55,27 +55,15 @@ let selectedObject = null;
 
         const paintGeometry = new THREE.BoxGeometry(50, 50, 0);
         const paintTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/recyclerabbit/main/src/WhiteRabbit.png');
-        paintTexture.colourSpace = THREE.SRGBColorSpace; // removed linear
+        paintTexture.colourSpace = THREE.SRGBColorSpace;
 
         // Material for the front and back faces (with texture)
-        const material = new THREE.MeshPhongMaterial({ // was MeshStandardMat
+        const material = new THREE.MeshPhongMaterial({
           map: paintTexture,
-        //   metalness: 1.5, // was 0.8
-        //   roughness: 1.5, // was 0.8
-          // emissive: new THREE.Color(0x111111),
-          // emissiveIntensity: 7.5, // was 0.8, 15 negative
         });
 
         const paintMesh = new THREE.Mesh(paintGeometry, material);
         scene.add(paintMesh);
-
-        // const sphereGeometry = new THREE.SphereGeometry(30, 64, 32);
-        // const sphereTex = new THREE.TextureLoader().load('https://raw.githubusercontent.com/GanyuHail/port3c/main/src/moon.jpg');
-        // const sphereMaterial = new THREE.MeshStandardMaterial({ map: sphereTex });
-        // const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        // scene.add(sphereMesh);
-        // sphereMesh.position.set(0, 0, 0);
-
 
         for (i = 0; i < particleCount; i++) {
 
@@ -179,12 +167,9 @@ let selectedObject = null;
           window.location.href = "/recyclerabbit/page.html";  // Navigate to another page
         }
       }
-
       window.addEventListener('pointermove', onPointerMove);
       window.addEventListener('click', handleNavigation);
       window.addEventListener('touchend', handleNavigation);
-
-
 
         // function touchCancel(event) {
         //     selectedObject = null;
@@ -236,26 +221,6 @@ let selectedObject = null;
                 object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
             }
         }
-
-        // Update materials' colors based on time
-        // for (let i = 0; i < materials.length; i++) {
-        //     const color = parameters[i][0];
-        //     const h = (360 * (color[0] + (time * 7)) % 360) / 360;
-        //     materials[i].color.setHSL(h, color[1], color[2]);
-        // }
-
-        // Optionally, you can use interpolated color blending code here if needed:
-        /*
-        const pink = new THREE.Color("hsl(330, 100%, 70%)");
-        const lightBlue = new THREE.Color("hsl(200, 100%, 70%)");
-
-        for (let i = 0; i < materials.length; i++) {
-            const blendFactor = (Math.sin(time * 2) + 1) / 2;  // Smooth transition
-            const interpolatedColor = pink.clone().lerp(lightBlue, blendFactor);
-            materials[i].color.copy(interpolatedColor);
-        }
-        */
-
         renderer.render(scene, camera);
     }
 

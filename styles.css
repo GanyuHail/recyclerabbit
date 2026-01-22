@@ -9,13 +9,11 @@
 
 body {
     font-family: "inter";
+    margin: 0em;
 }
 
-.inter {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
+.text1 {
+    margin-top: 1em;
 }
 
 .topnav {
@@ -25,7 +23,7 @@ body {
 
 .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

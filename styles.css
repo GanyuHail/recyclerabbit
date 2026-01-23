@@ -9,17 +9,19 @@
 
 body {
     font-family: "inter";
-    margin: auto;
 }
 
 .text1 {
     margin-top: 1em;
+    margin: auto;
 }
 
 .topnav {
     background-color: white;
     overflow: hidden;
-    border: 1px;
+    margin: auto;
+    border-bottom: 2px;
+    border-color: black;
 }
 
 .topnav a {
@@ -32,12 +34,13 @@ body {
 }
 
 .topnav a:hover {
-    background-color: #ff2ee3;
+    background-color: pink;
     color: white;
 }
 
 .topnav a.active {
-    border-radius: 1px;
-    border-color: black;
+    background-color: darkgrey;
     color: black;
+    border: 2px;
+    border-color: black;
 }

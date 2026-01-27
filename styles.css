@@ -44,14 +44,12 @@ body::before {
     padding: 1rem;
 }
 
-/* First line - rotated 90° clockwise, bottom left */
+/* First line - rotated, bottom left (reads with bottom of text toward left edge) */
 .text-left {
-    left: 0;
+    left: 1rem;
     bottom: 10%;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transform-origin: left bottom;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
 }
 
 /* Second line - bottom center */
@@ -62,14 +60,12 @@ body::before {
     max-width: 60vw;
 }
 
-/* Third line - rotated 90° counter-clockwise, bottom right */
+/* Third line - rotated, bottom right (reads with bottom of text toward right edge) */
 .text-right {
-    right: 0;
+    right: 1rem;
     bottom: 10%;
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
     transform-origin: right bottom;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
 }
 
 /* Fourth line - center of page */

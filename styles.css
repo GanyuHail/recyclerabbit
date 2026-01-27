@@ -9,18 +9,84 @@
 
 body {
     font-family: "inter";
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-.text1 {
-    margin-top: 1em;
-    margin: auto;
+/* Vertical line descending the page */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 70px; /* Positioned between Home and News */
+    width: 2.4px;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+}
+
+/* Text container - fills viewport below nav and image */
+.text-container {
+    position: relative;
+    min-height: calc(100vh - 200px);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base styles for all text lines */
+.text-line {
+    position: absolute;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    max-width: 40vw;
     text-align: center;
+    padding: 1rem;
+}
+
+/* First line - rotated 90° clockwise, bottom left */
+.text-left {
+    left: 0;
+    bottom: 10%;
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* Second line - bottom center */
+.text-bottom {
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 60vw;
+}
+
+/* Third line - rotated 90° counter-clockwise, bottom right */
+.text-right {
+    right: 0;
+    bottom: 10%;
+    transform: rotate(-90deg);
+    transform-origin: right bottom;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* Fourth line - center of page */
+.text-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70vw;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 500;
 }
 
 .topnav {
     background-color: white;
     overflow: hidden;
-    border-bottom: 5px solid black;
+    border-bottom: 2.4px solid black;
+    width: 100%;
 }
 
 .topnav a {
@@ -52,17 +118,16 @@ img {
     margin: 0 auto;
 }
 
-/* Container for better mobile spacing */
-.text1 {
-    padding: 0 1rem;
-    max-width: 800px;
-}
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
     body {
         font-size: 16px;
         line-height: 1.5;
+    }
+
+    body::before {
+        display: none; /* Hide vertical line when nav is centered */
     }
 
     .topnav {
@@ -77,19 +142,35 @@ img {
         font-size: 15px;
     }
 
-    .text1 {
-        font-size: 1rem;
-        padding: 0 1.5rem;
-        text-align: center;
-    }
-
     img {
         padding: 1rem;
+    }
+
+    .text-container {
+        min-height: calc(100vh - 150px);
+    }
+
+    .text-line {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+        padding: 0.5rem;
+    }
+
+    .text-left,
+    .text-right {
+        max-width: 30vh;
+    }
+
+    .text-center {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
     }
 }
 
 /* Small mobile screens */
 @media screen and (max-width: 480px) {
+    body::before {
+        display: none; /* Hide vertical line on small screens where nav stacks */
+    }
+
     .topnav {
         flex-direction: column;
         align-items: stretch;
@@ -105,8 +186,31 @@ img {
         border-bottom: none;
     }
 
-    .text1 {
-        font-size: 0.95rem;
-        padding: 0 1rem;
+    .text-container {
+        min-height: calc(100vh - 120px);
+    }
+
+    .text-line {
+        font-size: clamp(0.6rem, 3vw, 0.85rem);
+    }
+
+    .text-left {
+        left: 5px;
+        bottom: 5%;
+    }
+
+    .text-right {
+        right: 5px;
+        bottom: 5%;
+    }
+
+    .text-bottom {
+        bottom: 1%;
+        max-width: 50vw;
+    }
+
+    .text-center {
+        font-size: clamp(0.85rem, 4vw, 1.1rem);
+        max-width: 80vw;
     }
 }

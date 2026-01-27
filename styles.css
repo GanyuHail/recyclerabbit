@@ -19,8 +19,8 @@ body::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 70px; /* Positioned between Home and News */
-    width: 2.4px;
+    left: 77px; /* Positioned where grey meets white on nav */
+    width: 1.2px;
     height: 100%;
     background-color: black;
     z-index: 10;
@@ -39,17 +39,17 @@ body::before {
 .text-line {
     position: absolute;
     font-size: clamp(0.8rem, 2vw, 1.1rem);
-    max-width: 40vw;
     text-align: center;
     padding: 1rem;
 }
 
 /* First line - rotated, bottom left (reads with bottom of text toward left edge) */
 .text-left {
-    left: 1rem;
-    bottom: 10%;
+    left: 2rem;
+    bottom: 20%;
     transform: rotate(-90deg);
-    transform-origin: left bottom;
+    transform-origin: top left;
+    white-space: nowrap;
 }
 
 /* Second line - bottom center */
@@ -62,10 +62,11 @@ body::before {
 
 /* Third line - rotated, bottom right (reads with bottom of text toward right edge) */
 .text-right {
-    right: 1rem;
-    bottom: 10%;
+    right: 2rem;
+    bottom: 20%;
     transform: rotate(90deg);
-    transform-origin: right bottom;
+    transform-origin: top right;
+    white-space: nowrap;
 }
 
 /* Fourth line - center of page */
@@ -81,7 +82,7 @@ body::before {
 .topnav {
     background-color: white;
     overflow: hidden;
-    border-bottom: 2.4px solid black;
+    border-bottom: 1.2px solid black;
     width: 100%;
 }
 
@@ -153,7 +154,7 @@ img {
 
     .text-left,
     .text-right {
-        max-width: 30vh;
+        font-size: clamp(0.6rem, 2vw, 0.9rem);
     }
 
     .text-center {

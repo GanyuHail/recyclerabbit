@@ -14,14 +14,13 @@ body {
 .text1 {
     margin-top: 1em;
     margin: auto;
+    text-align: center;
 }
 
 .topnav {
     background-color: white;
     overflow: hidden;
-    margin: auto;
-    border-bottom: 2px;
-    border-color: black;
+    border-bottom: 5px solid black;
 }
 
 .topnav a {
@@ -43,4 +42,71 @@ body {
     color: black;
     border: 2px;
     border-color: black;
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Container for better mobile spacing */
+.text1 {
+    padding: 0 1rem;
+    max-width: 800px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .topnav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .topnav a {
+        float: none;
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .text1 {
+        font-size: 1rem;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    img {
+        padding: 1rem;
+    }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+    .topnav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .topnav a {
+        text-align: center;
+        padding: 14px 16px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .topnav a:last-child {
+        border-bottom: none;
+    }
+
+    .text1 {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
 }

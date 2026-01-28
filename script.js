@@ -118,7 +118,7 @@ let selectedObject = null;
         container.appendChild(renderer.domElement);
         window.addEventListener('resize', onWindowResize, false);
         document.addEventListener('mousemove', onDocumentMouseMove, false);
-        // document.addEventListener('touchstart', onDocumentTouchStart, false);
+        document.addEventListener('touchstart', onDocumentTouchStart, false);
         document.addEventListener('touchmove', onDocumentTouchMove, false);
         document.addEventListener('touchend', onDocumentTouchEnd, false);
         // document.addEventListener('touchcancel', onDocumentTouchCancel, false);
@@ -130,9 +130,17 @@ let selectedObject = null;
         // window.addEventListener('click', onMouseDown);
         // window.addEventListener('touchend', touchEnd);
         // window.addEventListener('touchcancel', touchCancel);
-        // window.addEventListener('touchstart', touchStart);
+        window.addEventListener('touchstart', touchStart);
 
-        function onPointerMove(event) {
+        function onDocumentTouchStart(event) {
+            if (event.touches.length === 1) {
+                event.preventDefault();
+                // Convert screen coords to normalized device coords (-1 to +1)
+                mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+            }
+
+        } function onPointerMove(event) {
             if (selectedObject) {
                 selectedObject.material.colgitor.set('white');
                 selectedObject = null;
@@ -170,16 +178,9 @@ let selectedObject = null;
       window.addEventListener('click', handleNavigation);
       window.addEventListener('pointermove', onPointerMove);
       window.addEventListener('touchend', handleNavigation);
+      window.addEventListener('touchstart', touchStart);
 
-        // function touchCancel(event) {
-        //     selectedObject = null;
-        // }
     }
-
-    //     function touchEnd(event) {
-    //         selectedObject = null;
-    //     }
-    // }
 
     function animate() {
         requestAnimationFrame(animate);

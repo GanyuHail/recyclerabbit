@@ -93,6 +93,20 @@ body::before {
     width: 100%;
 }
 
+.topnav .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    color: black;
+    font: inherit;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.topnav .nav-links {
+    display: contents;
+}
+
 .topnav a {
     float: left;
     color: black;
@@ -177,16 +191,38 @@ img {
         display: none; /* Hide vertical line when nav is centered */
     }
 
+    /* Hide image 2 & 3 on mobile */
+    .img-intersection,
+    .img-between {
+        display: none;
+    }
+
+    /* Mobile dropdown nav */
     .topnav {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .topnav .nav-toggle {
+        display: block;
+        text-align: left;
+    }
+
+    .topnav .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .topnav.open .nav-links {
+        display: flex;
     }
 
     .topnav a {
         float: none;
         padding: 12px 14px;
         font-size: 15px;
+        border-top: 1px solid #eee;
     }
 
     img {

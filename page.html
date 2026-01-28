@@ -15,11 +15,14 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="page.html">Home</a>
-        <a href="science.html">Science</a>
-        <a href="buy.html">Buy</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">Menu</button>
+        <div class="nav-links">
+            <a class="active" href="page.html">Home</a>
+            <a href="science.html">Science</a>
+            <a href="buy.html">Buy</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </div>
     </div>
     <div class="image-container">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
@@ -32,4 +35,10 @@
         <div class="text-line text-right">We can no longer shift the blame.</div>
         <div class="text-line text-center">Save the trees: recycle your envelops!</div>
     </div>
+
+    <script>
+        function toggleNav() {
+            document.querySelector('.topnav')?.classList.toggle('open');
+        }
+    </script>
 </body>

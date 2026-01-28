@@ -15,15 +15,23 @@
 
 <body>
     <div class="topnav">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">Menu</button>
+        <div class="nav-links">
         <a href="page.html">Home</a>
         <a href="science.html">Science</a>
         <a href="buy.html">Buy</a>
         <a href="contact.html">Contact</a>
         <a class="active" href="about.html">About</a>
+        </div>
     </div>
     <div class="image-container">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
     </div>
+    <script>
+        function toggleNav() {
+            document.querySelector('.topnav')?.classList.toggle('open');
+        }
+    </script>
 </body>

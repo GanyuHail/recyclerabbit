@@ -118,7 +118,6 @@ body::before {
 img {
     max-width: 100%;
     max-height: 25vh;
-    height: 25vh;
     display: block;
     object-fit: contain;
 }
@@ -127,20 +126,45 @@ img {
 .image-container {
     position: relative;
     width: 100%;
-    height: 25vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: start;
-    justify-items: center;
+    /* Use a predictable square size for exact positioning */
+    --img-size: min(25vh, 32vw);
+    height: var(--img-size);
 }
 
-/* Keep the three images evenly spaced */
+/* Image 1: exactly centered in viewport */
+.img-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--img-size);
+    height: var(--img-size);
+    transform: translateX(-50%);
+}
+
+/* Image 2: fixed to the right viewport edge */
+.img-intersection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--img-size);
+    height: var(--img-size);
+}
+
+/* Image 3: equidistant between image 1 & 2 (between their centers) */
+.img-between {
+    position: absolute;
+    top: 0;
+    /* midpoint between centers: 75% - (img-size / 4) */
+    left: calc(75% - (var(--img-size) / 4));
+    width: var(--img-size);
+    height: var(--img-size);
+    transform: translateX(-50%);
+}
+
+/* Keep the three images controlled */
 .img-intersection,
 .img-between,
-.img-center {
-    position: static;
-    transform: none;
-}
+.img-center { }
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {

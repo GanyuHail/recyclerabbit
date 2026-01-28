@@ -132,11 +132,16 @@ img {
     align-items: flex-start;
 }
 
-/* Image at intersection of lines (top left, where lines meet) */
+/* Mirror helpers */
+.image-container {
+    --nav-split-x: 78px; /* same x as the vertical line */
+}
+
+/* Image at intersection of lines (mirrored to the right of center) */
 .img-intersection {
     position: absolute;
     top: 0;
-    left: 78px;
+    left: calc(100% - var(--nav-split-x));
     transform: translate(-50%, 0);
     z-index: 5;
 }
@@ -150,7 +155,8 @@ img {
 .img-between {
     position: absolute;
     top: 0;
-    left: calc((78px + 50%) / 2);
+    /* midpoint between center (50%) and mirrored intersection (100% - x) */
+    left: calc(75% - (var(--nav-split-x) / 2));
     transform: translateX(-50%);
 }
 

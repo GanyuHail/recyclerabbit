@@ -6,8 +6,8 @@ let selectedObject = null;
     var container, HEIGHT,
         WIDTH, fieldOfView, aspectRatio,
         nearPlane, farPlane,
-        geometry, particleCount, sphereMesh, vertex, vertices,
-        i, h, color, size,
+        geometry, particleCount,
+        i,
         materials = [],
         mouseX = 0,
         mouseY = 0,
@@ -25,7 +25,7 @@ let selectedObject = null;
         windowHalfX = WIDTH / 2;
         windowHalfY = HEIGHT / 2;
 
-        fieldOfView = 90; // was 120
+        fieldOfView = 75; // was 120
         aspectRatio = WIDTH / HEIGHT;
         nearPlane = 1; // this is render nearplane not camera nearplane.
         farPlane = 3000;

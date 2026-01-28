@@ -178,7 +178,7 @@ let selectedObject = null;
       window.addEventListener('click', handleNavigation);
       window.addEventListener('pointermove', onPointerMove);
       window.addEventListener('touchend', handleNavigation);
-      window.addEventListener('touchstart', touchStart);
+      window.addEventListener('touchstart', handleNavigation);
 
     }
 

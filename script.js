@@ -7,7 +7,7 @@ let selectedObject = null;
         WIDTH, fieldOfView, aspectRatio,
         nearPlane, farPlane,
         geometry, particleCount,
-        i,
+        i, size,
         materials = [],
         mouseX = 0,
         mouseY = 0,

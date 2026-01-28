@@ -103,7 +103,7 @@ body::before {
 }
 
 .topnav a:hover {
-    background-color: pink;
+    background-color: hotpink;
     color: white;
 }
 
@@ -137,12 +137,12 @@ img {
     --nav-split-x: 78px; /* same x as the vertical line */
 }
 
-/* Image at intersection of lines (mirrored to the right of center) */
+/* Right-most image: flush to right viewport edge (no cropping) */
 .img-intersection {
     position: absolute;
     top: 0;
-    left: calc(100% - var(--nav-split-x));
-    transform: translate(-50%, 0);
+    left: 100%;
+    transform: translateX(-100%);
     z-index: 5;
 }
 
@@ -155,11 +155,10 @@ img {
 .img-between {
     position: absolute;
     top: 0;
-    /* midpoint between center (50%) and mirrored intersection (100% - x) */
-    left: calc(75% - (var(--nav-split-x) / 2));
+    /* midpoint between center (50%) and right edge (100%) */
+    left: 75%;
     transform: translateX(-50%);
 }
-
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {

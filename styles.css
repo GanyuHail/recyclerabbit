@@ -127,37 +127,19 @@ img {
 .image-container {
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    height: 25vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    justify-items: center;
 }
 
-/* Mirror helpers */
-.image-container {
-    --nav-split-x: 78px; /* same x as the vertical line */
-}
-
-/* Right-most image: flush to right viewport edge (no cropping) */
-.img-intersection {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    transform: translateX(-100%);
-    z-index: 5;
-}
-
-/* Image in center */
+/* Keep the three images evenly spaced */
+.img-intersection,
+.img-between,
 .img-center {
-    margin: 0 auto;
-}
-
-/* Image exactly between intersection and center */
-.img-between {
-    position: absolute;
-    top: 0;
-    /* midpoint between center (50%) and right edge (100%) */
-    left: 75%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
 }
 
 /* Mobile styles */

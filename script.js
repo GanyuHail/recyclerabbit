@@ -118,7 +118,7 @@ let selectedObject = null;
         container.appendChild(renderer.domElement);
         window.addEventListener('resize', onWindowResize, false);
         document.addEventListener('mousemove', onDocumentMouseMove, false);
-        document.addEventListener('touchstart', onDocumentTouchStart, false);
+        // document.addEventListener('touchstart', onDocumentTouchStart, false);
         document.addEventListener('touchmove', onDocumentTouchMove, false);
         document.addEventListener('touchend', onDocumentTouchEnd, false);
         // document.addEventListener('touchcancel', onDocumentTouchCancel, false);
@@ -169,7 +169,6 @@ let selectedObject = null;
       }
       window.addEventListener('click', handleNavigation);
       window.addEventListener('pointermove', onPointerMove);
-      window.addEventListener('click', handleNavigation);
       window.addEventListener('touchend', handleNavigation);
 
         // function touchCancel(event) {

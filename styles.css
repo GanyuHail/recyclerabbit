@@ -117,11 +117,41 @@ body::before {
 /* Make images responsive and constrained */
 img {
     max-width: 100%;
-    max-height: 30vh;
-    height: auto;
+    max-height: 25vh;
+    height: 25vh;
     display: block;
-    margin: 0 auto;
     object-fit: contain;
+}
+
+/* Image container for positioning */
+.image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Image at intersection of lines (top left, where lines meet) */
+.img-intersection {
+    position: absolute;
+    top: 0;
+    left: 78px;
+    transform: translate(-50%, 0);
+    z-index: 5;
+}
+
+/* Image in center */
+.img-center {
+    margin: 0 auto;
+}
+
+/* Image exactly between intersection and center */
+.img-between {
+    position: absolute;
+    top: 0;
+    left: calc((78px + 50%) / 2);
+    transform: translateX(-50%);
 }
 
 

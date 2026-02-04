@@ -248,6 +248,11 @@ img {
     .text-center {
         font-size: clamp(0.6rem, 2vw, 0.9rem);
     }
+
+    .text-center .nowrap {
+        white-space: nowrap;
+        display: inline-block;
+    }
 }
 
 /* Small mobile screens */

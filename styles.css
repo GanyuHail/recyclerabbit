@@ -61,8 +61,8 @@ body::before {
 
 /* Envelope address - left justified, positioned like an address on an envelope */
 .text-center {
-    left: 3.5rem;
-    top: 30%;
+    left: 6rem;
+    top: 25%;
     transform: translateY(-50%);
     max-width: 50vw;
     text-align: left;

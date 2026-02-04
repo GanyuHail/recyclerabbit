@@ -246,7 +246,7 @@ img {
     }
 
     .text-center {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(0.6rem, 2vw, 0.9rem);
     }
 }
 

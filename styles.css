@@ -59,12 +59,16 @@ body::before {
     white-space: nowrap;
 }
 
-/* Second line - bottom center */
-.text-bottom {
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 60vw;
+/* Envelope address - left justified, positioned like an address on an envelope */
+.text-center {
+    left: 3.5rem;
+    top: 30%;
+    transform: translateY(-50%);
+    max-width: 50vw;
+    text-align: left;
+    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    font-weight: 400;
+    line-height: 1.8;
 }
 
 /* Third line - rotated, bottom right (reads with bottom of text toward right edge) */
@@ -74,16 +78,6 @@ body::before {
     transform: rotate(90deg);
     transform-origin: top right;
     white-space: nowrap;
-}
-
-/* Fourth line - center of page */
-.text-center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 70vw;
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    font-weight: 500;
 }
 
 .topnav {
@@ -292,9 +286,10 @@ img {
         bottom: 5%;
     }
 
-    .text-bottom {
-        bottom: 1%;
-        max-width: 50vw;
+    .text-center {
+        font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+        line-height: 1.6;
+        left: 2rem;
     }
 
     .text-center {

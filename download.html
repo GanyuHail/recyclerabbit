@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>RecycleRabbit</title>
+    <title>RecycleRabbit - Download</title>
     <link rel="icon" type="image/x-icon" href="./src/TrueRabbit.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,36 +11,52 @@
         rel="stylesheet">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <style>
+        .planet-emoji {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15vw;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .planet-emoji:hover {
+            filter: brightness(1.2);
+        }
+    </style>
 </head>
 
 <body>
     <div class="topnav">
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">Menu</button>
         <div class="nav-links">
-            <a class="active" href="page.html">Home</a>
-            <a href="download.html">Download</a>
+            <a href="page.html">Home</a>
+            <a href="download.html" class="active">Download</a>
             <a href="buy.html">Buy</a>
             <a href="contact.html">Contact</a>
             <a href="about.html">About</a>
         </div>
     </div>
-    <div class="image-container">
-        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
-        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
-        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
-    </div>
-    <div class="text-container">
-        <div class="text-line text-left">Recycle your Envelopes</div>
-        <div class="text-line text-center">Re-Use Recycling has a carbon footprint of 0.
-            <br>Producing recycled paper emits roughly 0.2–1.5 kg CO₂-equivalent per kg
-            <br>Why buy new envelops ever again?
-        </div>
-        <div class="text-line text-right">Together we can save the Environment</div>
-    </div>
+
+    <div class="planet-emoji" onclick="downloadPDF()">🌍</div>
 
     <script>
         function toggleNav() {
             document.querySelector('.topnav')?.classList.toggle('open');
+        }
+
+        function downloadPDF() {
+            // Create a simple PDF download
+            // Note: This creates a placeholder PDF. Replace with actual PDF URL as needed.
+            const link = document.createElement('a');
+            link.href = 'RecycleRabbit.pdf';
+            link.download = 'RecycleRabbit.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
     <a href="index.html"><img src="./src/TrueRabbit.png" alt="True Rabbit" class="true-rabbit"></a>

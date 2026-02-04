@@ -17,7 +17,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 6.75vw;
+            font-size: calc(min(25vh, 32vw) * 0.35);
             cursor: pointer;
             z-index: 10;
             user-select: none;
@@ -39,6 +39,12 @@
             <a href="contact.html">Contact</a>
             <a href="about.html">About</a>
         </div>
+    </div>
+
+    <div class="image-container">
+        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
+        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
+        <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
     </div>
 
     <div class="planet-emoji" onclick="downloadPDF()">♻️</div>

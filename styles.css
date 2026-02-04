@@ -176,9 +176,7 @@ img {
 }
 
 /* Keep the three images controlled */
-.img-intersection,
-.img-between,
-.img-center { }
+/* Grouped image selectors kept for clarity (no extra rules needed) */
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {

@@ -130,7 +130,8 @@ let selectedObject = null;
         // window.addEventListener('click', onMouseDown);
         // window.addEventListener('touchend', touchEnd);
         // window.addEventListener('touchcancel', touchCancel);
-        window.addEventListener('touchstart', touchStart);
+        // Use the defined touch-start handler instead of the undefined `touchStart`
+        window.addEventListener('touchstart', onDocumentTouchStart);
 
         function onDocumentTouchStart(event) {
             if (event.touches.length === 1) {

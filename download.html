@@ -17,7 +17,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4.5vw;
+            font-size: 6.75vw;
             cursor: pointer;
             z-index: 10;
             user-select: none;
@@ -51,8 +51,8 @@
         function downloadPDF() {
             // Create a simple PDF download
             const link = document.createElement('a');
-            link.href = 'https://github.com/GanyuHail/recyclerabbit/blob/main/src/RecyclingRabbitLableBlankC5.pdf';
-            link.download = 'https://github.com/GanyuHail/recyclerabbit/blob/main/src/RecyclingRabbitLableBlankC5.pdf';
+            link.href = 'src/RecyclingRabbitLableBlankC5.pdf';
+            link.download = 'src/RecyclingRabbitLableBlankC5.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

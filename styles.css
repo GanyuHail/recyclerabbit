@@ -136,6 +136,19 @@ img {
     object-fit: contain;
 }
 
+/* TrueRabbit fixed image shown at bottom center (half size of recycling logo) */
+.true-rabbit {
+    position: fixed;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(min(25vh, 32vw) / 2);
+    height: auto;
+    z-index: 20;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 /* Image container for positioning */
 .image-container {
     position: relative;

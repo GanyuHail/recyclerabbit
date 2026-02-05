@@ -11,6 +11,23 @@
         rel="stylesheet">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <style>
+        .mail-emoji {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: calc(min(25vh, 32vw) * 0.35);
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .mail-emoji:hover {
+            filter: brightness(1.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -33,5 +50,6 @@
             document.querySelector('.topnav')?.classList.toggle('open');
         }
     </script>
+    <a href="mailto:recyclerabbit@protonmail.com" class="mail-emoji">📧</a>
     <a href="index.html"><img src="./src/TrueRabbit.png" alt="True Rabbit" class="true-rabbit"></a>
 </body>

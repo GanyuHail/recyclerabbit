@@ -13,19 +13,21 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
     <style>
         .mail-emoji {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: calc(min(25vh, 32vw) * 0.35);
-            cursor: pointer;
-            z-index: 10;
-            user-select: none;
+            position: absolute;
+            left: 6rem;
+            top: 25%;
+            transform: translateY(-50%);
+            max-width: 50vw;
+            text-align: left;
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.8;
+            color: black;
             text-decoration: none;
         }
 
         .mail-emoji:hover {
-            filter: brightness(1.2);
+            text-decoration: underline;
         }
     </style>
 </head>

@@ -23,6 +23,109 @@
             z-index: 5;
             color: black;
         }
+
+        .product-container {
+            position: relative;
+            flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .product-card {
+            background: white;
+            border: 1.5px solid black;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card h2 {
+            margin-top: 0;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+        }
+
+        .product-card p {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: #555;
+            margin: 1rem 0;
+        }
+
+        .product-price {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: bold;
+            margin: 1rem 0;
+            color: hotpink;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quantity-selector button {
+            background: #f0f0f0;
+            border: 1px solid black;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+
+        .quantity-selector button:hover {
+            background: hotpink;
+            color: white;
+        }
+
+        .quantity-selector input {
+            width: 60px;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        .add-to-cart-btn {
+            background: hotpink;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #ff1493;
+        }
+
+        .add-to-cart-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -41,11 +144,107 @@
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
     </div>
-    <div class="coming-soon">Coming Soon</div>
+
+    <div class="product-container">
+        <div class="product-card" id="product-card">
+            <h2 id="product-title">Loading...</h2>
+            <img id="product-image" src="" alt="Product" style="max-width: 100%; height: auto; margin: 1rem 0;">
+            <p id="product-description"></p>
+            <div class="product-price" id="product-price">$0.00</div>
+
+            <div class="quantity-selector">
+                <button id="qty-minus" onclick="updateQuantity(-1)">−</button>
+                <input type="number" id="quantity" value="1" min="1" onchange="validateQuantity()">
+                <button id="qty-plus" onclick="updateQuantity(1)">+</button>
+            </div>
+
+            <button class="add-to-cart-btn" id="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            <div class="error-message" id="error-message"></div>
+        </div>
+    </div>
+
     <script>
         function toggleNav() {
             document.querySelector('.topnav')?.classList.toggle('open');
         }
+
+        let productData = null;
+
+        async function loadProduct() {
+            try {
+                const response = await fetch('/api/product');
+                if (!response.ok) throw new Error('Failed to load product');
+                productData = await response.json();
+                displayProduct();
+            } catch (error) {
+                showError('Failed to load product: ' + error.message);
+            }
+        }
+
+        function displayProduct() {
+            if (!productData) return;
+
+            document.getElementById('product-title').textContent = productData.title;
+            document.getElementById('product-description').textContent = productData.description;
+
+            const price = productData.variants.edges[0]?.node?.price?.amount || '0.00';
+            document.getElementById('product-price').textContent = `$${parseFloat(price).toFixed(2)}`;
+
+            const image = productData.images.edges[0]?.node;
+            if (image) {
+                document.getElementById('product-image').src = image.url;
+                document.getElementById('product-image').alt = image.altText || 'Product';
+            }
+        }
+
+        function updateQuantity(delta) {
+            const input = document.getElementById('quantity');
+            const newValue = Math.max(1, parseInt(input.value) + delta);
+            input.value = newValue;
+        }
+
+        function validateQuantity() {
+            const input = document.getElementById('quantity');
+            const value = parseInt(input.value) || 1;
+            input.value = Math.max(1, value);
+        }
+
+        async function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const btn = document.getElementById('add-to-cart');
+            const errorMsg = document.getElementById('error-message');
+
+            if (quantity < 1) {
+                showError('Please select a valid quantity');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Adding to cart...';
+            errorMsg.textContent = '';
+
+            try {
+                const response = await fetch('/api/cart', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ quantity }),
+                });
+
+                if (!response.ok) throw new Error('Failed to create cart');
+                const { checkoutUrl } = await response.json();
+                window.location.href = checkoutUrl;
+            } catch (error) {
+                showError('Error: ' + error.message);
+                btn.disabled = false;
+                btn.textContent = 'Add to Cart';
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('error-message').textContent = message;
+        }
+
+        loadProduct();
     </script>
     <a href="index.html"><img src="./src/TrueRabbit.png" alt="True Rabbit" class="true-rabbit"></a>
 </body>

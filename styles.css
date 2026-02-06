@@ -305,7 +305,7 @@ img {
 
 /* Apply to body and all text descendants; slight offsets and tiny blur */
 body, body * {
-    text-shadow: 0.4px 1px 0.4px var(--cmyk-c),
-                 0px 1.2px 0.4px var(--cmyk-m),
-                 -0.6px 1.8px 0.4px var(--cmyk-y);
+    text-shadow: 1px 0.4px 0.4px var(--cmyk-c),
+                 1.2px 0px 0.4px var(--cmyk-m),
+                 1.8px -0.6px 0.4px var(--cmyk-y);
 }

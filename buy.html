@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 5;
+            z-index: 10; /* container above image */
         }
 
         #product-image {
@@ -41,7 +41,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 0;
+            z-index: 0; /* behind everything */
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.86); /* allow image to show through */
+            border: 1.5px solid black;
+            padding: 2rem;
+            max-width: 500px;
+            text-align: center;
+            z-index: 20; /* on top of image */
         }
 
         .product-card {

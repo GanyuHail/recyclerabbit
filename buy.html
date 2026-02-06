@@ -38,20 +38,19 @@
             background: white;
             border: 1.5px solid black;
             padding: 2rem;
-            border-radius: 8px;
             max-width: 500px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .product-card h2 {
             margin-top: 0;
             font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: black;
         }
 
         .product-card p {
             font-size: clamp(0.85rem, 1.5vw, 1rem);
-            color: #555;
+            color: black;
             margin: 1rem 0;
         }
 
@@ -59,7 +58,7 @@
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: bold;
             margin: 1rem 0;
-            color: hotpink;
+            color: black;
         }
 
         .quantity-selector {
@@ -71,12 +70,12 @@
         }
 
         .quantity-selector button {
-            background: #f0f0f0;
+            background: white;
             border: 1px solid black;
             padding: 0.5rem 1rem;
             cursor: pointer;
             font-size: 1rem;
-            border-radius: 4px;
+            color: black;
         }
 
         .quantity-selector button:hover {
@@ -94,13 +93,12 @@
         }
 
         .add-to-cart-btn {
-            background: hotpink;
+            background: black;
             color: white;
-            border: none;
+            border: 1.5px solid black;
             padding: 1rem 2rem;
             font-size: clamp(1rem, 1.5vw, 1.2rem);
             font-weight: 600;
-            border-radius: 4px;
             cursor: pointer;
             width: 100%;
             margin-top: 1rem;
@@ -108,7 +106,8 @@
         }
 
         .add-to-cart-btn:hover {
-            background: #ff1493;
+            background: white;
+            color: black;
         }
 
         .add-to-cart-btn:disabled {
@@ -148,7 +147,7 @@
     <div class="product-container">
         <div class="product-card" id="product-card">
             <h2 id="product-title">Loading...</h2>
-            <img id="product-image" src="" alt="Product" style="max-width: 100%; height: auto; margin: 1rem 0;">
+            <img id="product-image" src="./src/C5lableimg" alt="Product" style="max-width: 100%; height: auto; margin: 1rem 0; border: 1.5px solid black;">
             <p id="product-description"></p>
             <div class="product-price" id="product-price">$0.00</div>
 

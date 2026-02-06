@@ -195,7 +195,7 @@ img {
     }
 
     /* Hide image 2 & 3 on mobile */
-    .img-intersection {
+    .img-between {
         display: none;
     }
 
@@ -300,10 +300,10 @@ img {
 
 /* CMYK layered text shadows for all text (three slight offsets toward 4,5,7 o'clock) */
 :root {
+        --cmyk-m: rgba(255, 0, 255, 0.6);
+    /* Magenta */
     --cmyk-c: rgba(0, 255, 255, 0.6);
     /* Cyan */
-    --cmyk-m: rgba(255, 0, 255, 0.6);
-    /* Magenta */
     --cmyk-y: rgba(255, 255, 0, 0.6);
     /* Yellow */
 }
@@ -311,7 +311,7 @@ img {
 /* Apply to body and all text descendants; slight offsets and tiny blur */
 body,
 body * {
-    text-shadow: 1.2px 0px 0.4px var(--cmyk-m),
-        1px 0.4px 0.4px var(--cmyk-c),
+    text-shadow: 1px 0.2px 0.4px var(--cmyk-m),
+        -0.1px 0.6px 0.4px var(--cmyk-c),
         1.8px -0.6px 0.4px var(--cmyk-y);
 }

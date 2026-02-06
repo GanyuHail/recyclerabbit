@@ -40,25 +40,30 @@
             padding: 2rem;
             max-width: 500px;
             text-align: center;
+            font-family: "inter";
         }
 
         .product-card h2 {
             margin-top: 0;
             font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: black;
+            font-weight: 400;
         }
 
         .product-card p {
-            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
             color: black;
             margin: 1rem 0;
+            font-weight: 400;
+            line-height: 1.8;
         }
 
         .product-price {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: bold;
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+            font-weight: 400;
             margin: 1rem 0;
             color: black;
+            line-height: 1.8;
         }
 
         .quantity-selector {
@@ -147,7 +152,7 @@
     <div class="product-container">
         <div class="product-card" id="product-card">
             <h2 id="product-title">Loading...</h2>
-            <img id="product-image" src="./src/C5lableimg" alt="Product" style="max-width: 100%; height: auto; margin: 1rem 0; border: 1.5px solid black;">
+            <img id="product-image" src="./src/C5lableimg.jpg" alt="Product" style="max-width: 100%; height: auto; margin: 1rem 0; border: 1.5px solid black;">
             <p id="product-description"></p>
             <div class="product-price" id="product-price">$0.00</div>
 

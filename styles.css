@@ -81,6 +81,7 @@ body::before {
 }
 
 .topnav {
+    --topnav-height: 52px;
     background-color: white;
     overflow: hidden;
     border-bottom: 1.5px solid black;

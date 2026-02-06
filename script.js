@@ -137,8 +137,23 @@ let selectedObject = null;
             if (event.touches.length === 1) {
                 event.preventDefault();
                 // Convert screen coords to normalized device coords (-1 to +1)
-                mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+                const touch = event.touches[0];
+                const rect = renderer.domElement.getBoundingClientRect();
+                pointer.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+                pointer.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+                // Perform raycasting on touch
+                raycaster.setFromCamera(pointer, camera);
+                const intersects = raycaster.intersectObjects(scene.children, true);
+
+                if (intersects.length > 0) {
+                    const intersect = intersects[0];
+                    if (intersect && intersect.object) {
+                        selectedObject = intersect.object;
+                        console.log('Touch detected on object:', selectedObject);
+                        window.location.href = "/recyclerabbit/page.html";
+                    }
+                }
             }
 
         } function onPointerMove(event) {
@@ -169,17 +184,14 @@ let selectedObject = null;
             }
         };
 
-    // Handle clicks or touch events for navigation
+    // Handle click for navigation
     function handleNavigation(event) {
         if (selectedObject && selectedObject.material) {
-          console.log('Object clicked:', selectedObject);  // Test if the object is clicked
-          window.location.href = "/recyclerabbit/page.html";  // Navigate to another page
+          console.log('Object clicked:', selectedObject);
+          window.location.href = "/recyclerabbit/page.html";
         }
       }
       window.addEventListener('click', handleNavigation);
-      window.addEventListener('pointermove', onPointerMove);
-      window.addEventListener('touchend', handleNavigation);
-      window.addEventListener('touchstart', handleNavigation);
 
     }
 

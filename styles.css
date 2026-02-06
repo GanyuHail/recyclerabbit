@@ -7,7 +7,8 @@
     font-style: normal;
 }
 
-html, body {
+html,
+body {
     height: 100vh;
     overflow: hidden;
 }
@@ -189,7 +190,8 @@ img {
     }
 
     body::before {
-        display: none; /* Hide vertical line when nav is centered */
+        display: none;
+        /* Hide vertical line when nav is centered */
     }
 
     /* Hide image 2 & 3 on mobile */
@@ -253,7 +255,8 @@ img {
 /* Small mobile screens */
 @media screen and (max-width: 480px) {
     body::before {
-        display: none; /* Hide vertical line on small screens where nav stacks */
+        display: none;
+        /* Hide vertical line on small screens where nav stacks */
     }
 
     .topnav {
@@ -298,14 +301,18 @@ img {
 
 /* CMYK layered text shadows for all text (three slight offsets toward 4,5,7 o'clock) */
 :root {
-    --cmyk-c: rgba(0,255,255,0.6); /* Cyan */
-    --cmyk-m: rgba(255,0,255,0.6); /* Magenta */
-    --cmyk-y: rgba(255,255,0,0.6); /* Yellow */
+    --cmyk-c: rgba(0, 255, 255, 0.6);
+    /* Cyan */
+    --cmyk-m: rgba(255, 0, 255, 0.6);
+    /* Magenta */
+    --cmyk-y: rgba(255, 255, 0, 0.6);
+    /* Yellow */
 }
 
 /* Apply to body and all text descendants; slight offsets and tiny blur */
-body, body * {
-    text-shadow: 1px 0.4px 0.4px var(--cmyk-c),
-                 1.2px 0px 0.4px var(--cmyk-m),
-                 1.8px -0.6px 0.4px var(--cmyk-y);
+body,
+body * {
+    text-shadow: 1.2px 0px 0.4px var(--cmyk-m),
+        1px 0.4px 0.4px var(--cmyk-c),
+        1.8px -0.6px 0.4px var(--cmyk-y);
 }

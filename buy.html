@@ -26,24 +26,26 @@
 
         .product-container {
             position: relative;
-            flex: 1;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10; /* container above image */
+            z-index: 10; /* container above background */
         }
 
-        #product-image {
+        .product-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-width: none; /* override global img max-width */
-            max-height: none; /* allow full viewport height */
-            object-fit: cover;
-            z-index: 0; /* behind everything */
+            inset: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: 0; /* behind logos and card */
+        }
+
+        .image-container {
+            position: relative;
+            z-index: 40; /* above background, below product card */
         }
 
         .product-card {
@@ -157,6 +159,7 @@
         <a href="contact.html">Contact</a>
         </div>
     </div>
+    <div class="product-bg" style="background-image: url('./src/C5lableimg.jpg');"></div>
     <div class="image-container">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
@@ -166,7 +169,6 @@
     <div class="product-container">
         <div class="product-card" id="product-card">
             <h2 id="product-title">Loading...</h2>
-            <img id="product-image" src="./src/C5lableimg.jpg" alt="Product">
             <p id="product-description"></p>
             <div class="product-price" id="product-price">$0.00</div>
 
@@ -210,8 +212,8 @@
 
             const image = productData.images.edges[0]?.node;
             if (image) {
-                document.getElementById('product-image').src = image.url;
-                document.getElementById('product-image').alt = image.altText || 'Product';
+                const bg = document.querySelector('.product-bg');
+                if (bg) bg.style.backgroundImage = `url('${image.url}')`;
             }
         }
 

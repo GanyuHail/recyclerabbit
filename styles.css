@@ -195,8 +195,7 @@ img {
     }
 
     /* Hide image 2 & 3 on mobile */
-    .img-intersection,
-    .img-between {
+    .img-intersection {
         display: none;
     }
 
@@ -229,7 +228,7 @@ img {
     }
 
     img {
-        padding: 0;
+        padding: 1px;
     }
 
 

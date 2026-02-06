@@ -47,12 +47,13 @@
         }
 
         .product-card {
+            position: relative; /* ensure z-index applies */
             background: rgba(255,255,255,0.86); /* allow image to show through */
             border: 1.5px solid black;
             padding: 2rem;
             max-width: 500px;
             text-align: center;
-            z-index: 20; /* on top of image */
+            z-index: 50; /* on top of image and rabbit, below nav (nav = 60) */
             font-family: "inter";
         }
 

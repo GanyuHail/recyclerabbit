@@ -238,7 +238,7 @@ img {
 
     .text-left,
     .text-right {
-        font-size: clamp(0.6rem, 2vw, 0.9rem);
+        font-size: clamp(0.4rem, 2vw, 0.9rem);
     }
 
     .text-center {

@@ -3,19 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "RecycleRabbit - Eco-friendly product store",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
-  },
-  "keywords": ["recycling", "ecommerce", "shopify"],
+  "keywords": ["recycling"],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "node-fetch": "^2.6.11",
-    "dotenv": "^16.3.1"
-  },
-  "devDependencies": {}
+  "license": "MIT"
 }

@@ -50,12 +50,14 @@
 
         .product-card {
             position: relative; /* ensure z-index applies */
-            background: rgba(255,255,255,0.5); /* allow image to show through */
+            /* Soft circular fade: white semi-transparent center, transparent edges */
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0.1) 90%, rgba(255,255,255,0) 100%);
             padding: 2rem;
             max-width: 500px;
             text-align: center;
             z-index: 50; /* on top of image and rabbit, below nav (nav = 60) */
             font-family: "inter";
+            border: none;
         }
 
         .product-card h2 {
@@ -158,112 +160,19 @@
         <a href="contact.html">Contact</a>
         </div>
     </div>
-    <div class="product-bg" style="background-image: url('./src/C5lableimg.jpg');"></div>
+    <!-- Removed product background -->
     <div class="image-container">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-intersection">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-between">
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
     </div>
 
-    <div class="product-container">
-        <div class="product-card" id="product-card">
-            <h2 id="product-title">Under Construction</h2>
-            <p id="product-description"></p>
-            <div class="product-price" id="product-price">-</div>
-
-            <div class="quantity-selector">
-                <button id="qty-minus" onclick="updateQuantity(-1)">−</button>
-                <input type="number" id="quantity" value="1" min="1" onchange="validateQuantity()">
-                <button id="qty-plus" onclick="updateQuantity(1)">+</button>
-            </div>
-
-            <button class="add-to-cart-btn" id="add-to-cart" onclick="addToCart()">Add to Cart</button>
-            <div class="error-message" id="error-message"></div>
-        </div>
-    </div>
+    <!-- Removed product card -->
 
     <script>
         function toggleNav() {
             document.querySelector('.topnav')?.classList.toggle('open');
         }
-
-        let productData = null;
-
-        async function loadProduct() {
-            try {
-                const response = await fetch('/api/product');
-                if (!response.ok) throw new Error('Failed to load product');
-                productData = await response.json();
-                displayProduct();
-            } catch (error) {
-                showError('Failed to load product: ' + error.message);
-            }
-        }
-
-        function displayProduct() {
-            if (!productData) return;
-
-            document.getElementById('product-title').textContent = productData.title;
-            document.getElementById('product-description').textContent = productData.description;
-
-            const price = productData.variants.edges[0]?.node?.price?.amount || '0.00';
-            document.getElementById('product-price').textContent = `$${parseFloat(price).toFixed(2)}`;
-
-            const image = productData.images.edges[0]?.node;
-            if (image) {
-                const bg = document.querySelector('.product-bg');
-                if (bg) bg.style.backgroundImage = `url('${image.url}')`;
-            }
-        }
-
-        function updateQuantity(delta) {
-            const input = document.getElementById('quantity');
-            const newValue = Math.max(1, parseInt(input.value) + delta);
-            input.value = newValue;
-        }
-
-        function validateQuantity() {
-            const input = document.getElementById('quantity');
-            const value = parseInt(input.value) || 1;
-            input.value = Math.max(1, value);
-        }
-
-        async function addToCart() {
-            const quantity = parseInt(document.getElementById('quantity').value);
-            const btn = document.getElementById('add-to-cart');
-            const errorMsg = document.getElementById('error-message');
-
-            if (quantity < 1) {
-                showError('Please select a valid quantity');
-                return;
-            }
-
-            btn.disabled = true;
-            btn.textContent = 'Adding to cart...';
-            errorMsg.textContent = '';
-
-            try {
-                const response = await fetch('/api/cart', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ quantity }),
-                });
-
-                if (!response.ok) throw new Error('Failed to create cart');
-                const { checkoutUrl } = await response.json();
-                window.location.href = checkoutUrl;
-            } catch (error) {
-                showError('Error: ' + error.message);
-                btn.disabled = false;
-                btn.textContent = 'Add to Cart';
-            }
-        }
-
-        function showError(message) {
-            document.getElementById('error-message').textContent = message;
-        }
-
-        loadProduct();
     </script>
     <a href="index.html"><img src="./src/TrueRabbit.png" alt="True Rabbit" class="true-rabbit"></a>
 </body>

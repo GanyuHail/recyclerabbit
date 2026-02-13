@@ -168,13 +168,23 @@
         <img src="./src/RecyclingLogo.png" alt="Recycling Logo" class="img-center">
     </div>
 
-    <iframe
-        src="https://ebay.us/m/RrunzM"
-        title="RecycleRabbit eBay Shop"
-        style="position: absolute; top: var(--topnav-height,52px); left: 0; width: 100vw; height: calc(100vh - var(--topnav-height,52px)); border: none; z-index: 20; background: white;"
-        allowfullscreen
-        loading="lazy"
-    ></iframe>
+    <style>
+        .shop-emoji {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: calc(min(25vh, 32vw) * 0.35);
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+        }
+        .shop-emoji:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+
+    <a href="https://www.ebay.co.uk/itm/157677403669" target="_blank" rel="noopener" class="shop-emoji">🛒</a>
 
     <!-- Removed product card -->
 

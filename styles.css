@@ -236,7 +236,9 @@ img {
         font-size: clamp(0.7rem, 2.5vw, 1rem);
     }
 
-    .text-left,
+    .text-left {
+        font-size: calc(clamp(0.4rem, 2vw, 0.9rem) * 0.69);
+    }
     .text-right {
         font-size: clamp(0.4rem, 2vw, 0.9rem);
     }
@@ -281,7 +283,7 @@ img {
     .text-left {
         left: 5px;
         bottom: 5%;
-        font-size: clamp(0.85rem, 4vw, 1.1rem);
+        font-size: calc(clamp(0.85rem, 4vw, 1.1rem) * 0.69);
     }
 
     .text-right {
